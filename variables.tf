@@ -27,9 +27,9 @@ EOT
     description             = optional(string)
     expiry_time             = optional(string)
     interval                = optional(number)
-    month_days              = optional(set(string))
+    month_days              = optional(set(number))
     start_time              = optional(string)
-    timezone                = optional(string, "Etc/UTC")
+    timezone                = optional(string) # Default: "Etc/UTC"
     week_days               = optional(set(string))
     monthly_occurrence = optional(object({
       day        = string
