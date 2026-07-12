@@ -1,3 +1,7 @@
+output "automation_schedules_id" {
+  description = "Map of id values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.id }
+}
 output "automation_schedules_automation_account_name" {
   description = "Map of automation_account_name values across all automation_schedules, keyed the same as var.automation_schedules"
   value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.automation_account_name }
