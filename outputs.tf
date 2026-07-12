@@ -1,53 +1,49 @@
-output "automation_schedules" {
-  description = "All automation_schedule resources"
-  value       = azurerm_automation_schedule.automation_schedules
-}
 output "automation_schedules_automation_account_name" {
-  description = "List of automation_account_name values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.automation_account_name]
+  description = "Map of automation_account_name values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.automation_account_name }
 }
 output "automation_schedules_description" {
-  description = "List of description values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.description]
+  description = "Map of description values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.description }
 }
 output "automation_schedules_expiry_time" {
-  description = "List of expiry_time values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.expiry_time]
+  description = "Map of expiry_time values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.expiry_time }
 }
 output "automation_schedules_frequency" {
-  description = "List of frequency values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.frequency]
+  description = "Map of frequency values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.frequency }
 }
 output "automation_schedules_interval" {
-  description = "List of interval values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.interval]
+  description = "Map of interval values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.interval }
 }
 output "automation_schedules_month_days" {
-  description = "List of month_days values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.month_days]
+  description = "Map of month_days values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.month_days }
 }
 output "automation_schedules_monthly_occurrence" {
-  description = "List of monthly_occurrence values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.monthly_occurrence]
+  description = "Map of monthly_occurrence values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.monthly_occurrence }
 }
 output "automation_schedules_name" {
-  description = "List of name values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.name]
+  description = "Map of name values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.name }
 }
 output "automation_schedules_resource_group_name" {
-  description = "List of resource_group_name values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.resource_group_name]
+  description = "Map of resource_group_name values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.resource_group_name }
 }
 output "automation_schedules_start_time" {
-  description = "List of start_time values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.start_time]
+  description = "Map of start_time values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.start_time }
 }
 output "automation_schedules_timezone" {
-  description = "List of timezone values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.timezone]
+  description = "Map of timezone values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.timezone }
 }
 output "automation_schedules_week_days" {
-  description = "List of week_days values across all automation_schedules"
-  value       = [for k, v in azurerm_automation_schedule.automation_schedules : v.week_days]
+  description = "Map of week_days values across all automation_schedules, keyed the same as var.automation_schedules"
+  value       = { for k, v in azurerm_automation_schedule.automation_schedules : k => v.week_days }
 }
 
