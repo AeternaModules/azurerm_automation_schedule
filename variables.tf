@@ -29,21 +29,13 @@ EOT
     interval                = optional(number)
     month_days              = optional(set(number))
     start_time              = optional(string)
-    timezone                = optional(string) # Default: "Etc/UTC"
+    timezone                = optional(string)
     week_days               = optional(set(string))
     monthly_occurrence = optional(object({
       day        = string
       occurrence = number
     }))
   }))
-  validation {
-    condition = alltrue([
-      for k, v in var.automation_schedules : (
-        v.interval == null || (v.interval >= 1 && v.interval <= 100)
-      )
-    ])
-    error_message = "must be between 1 and 100"
-  }
   # --- Unconfirmed validation candidates, derived from azurerm_automation_schedule's provider source ---
   # Not auto-enabled: either a bespoke provider validator we can't safely translate,
   # or a path that crosses a list-typed block (needs its own for_each wrapping).
@@ -68,6 +60,9 @@ EOT
   #   source:    validate.AutomationAccount: no recognizable `if ... { errors = append(...) }` pattern - read it by hand
   # path: frequency
   #   source:    validation.StringInSlice value list is not a literal []string - likely a generated PossibleValuesFor*() helper; resolve separately
+  # path: interval
+  #   condition: value >= 1 && value <= 100
+  #   message:   must be between 1 and 100
   # path: start_time
   #   source:    validation.IsRFC3339Time(...) - no translation rule yet, add one
   # path: expiry_time
